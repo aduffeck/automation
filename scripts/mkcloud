@@ -534,7 +534,7 @@ function setuppublicnet
 {
     # workaround https://bugzilla.novell.com/show_bug.cgi?id=845496
     echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
-    mkvlan $vlan_public $net_public.1
+    mkvlan $vlan_public $net_public.1 $net_public_size
     if [[ $mkch_physcloudif ]] ; then
         brctl addif $cloudbr $mkch_physcloudif
         ip link set dev $mkch_physcloudif up
